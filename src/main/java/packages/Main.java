@@ -1,12 +1,16 @@
 package packages;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import packages.model.Team;
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.List;
 
 
 public class Main {
@@ -32,5 +36,8 @@ public class Main {
         // parsing json into objects
 
         ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        List<Team>teams = mapper.readValue(response.body(), new TypeReference<List<Team>>(){});
+        teams.forEach(System.out::println);
     }
 }
