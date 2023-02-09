@@ -31,13 +31,18 @@ public class Main {
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        System.out.println(response.body());
+        //System.out.println(response.body());
 
         // parsing json into objects
 
+        String json = response.body();
+        String jsonTeamData = json.substring(38,json.length()-2);
+        System.out.println(jsonTeamData);
+
+
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        List<Team>teams = mapper.readValue(response.body(), new TypeReference<List<Team>>(){});
+        List<Team>teams = mapper.readValue(jsonTeamData, new TypeReference<List<Team>>(){});
         teams.forEach(System.out::println);
     }
 }
