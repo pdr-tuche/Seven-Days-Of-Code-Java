@@ -9,16 +9,16 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-        RequestData requestData = new RequestData("Ibis SC");
+        RequestData requestData = new RequestData("Botafogo");
         String json = requestData.getResponse();
         // parsing json into objects
         MyJsonParser parsedJson = new MyJsonParser(json);
         JsonModel jsonModel = parsedJson.getJsonModel();
 
         TeamData teamOne = jsonModel.getSpecificData(0);
-        TeamData teamTwo = jsonModel.getSpecificData(1);
+        TeamData belo = jsonModel.getTeamData("Botafogo PB");
 
         System.out.printf("Primeiro time -> %s\n" +
-                "Segundo time -> %s", teamOne.getName(), teamTwo.getName());
+                "Segundo time -> %s", teamOne.getName(), belo.getName());
     }
 }
