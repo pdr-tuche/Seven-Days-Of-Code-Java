@@ -18,6 +18,19 @@ public class JsonModel {
     public TeamData getSpecificData(int index){
         return data.get(index);
     }
+
+    public TeamData getTeamData(String name){
+        TeamData team = null;
+        for (TeamData elem :
+                data) {
+            if (elem.getName().equals(name)) {
+                team = elem;
+                break;
+            }
+        }
+        return team;
+    }
+
     public String getCode() {
         return code;
     }
