@@ -1,16 +1,15 @@
 package packages;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import packages.model.Team;
+import packages.model.JsonModel;
+import packages.model.TeamData;
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.List;
 
 
 public class Main {
@@ -31,18 +30,17 @@ public class Main {
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        //System.out.println(response.body());
-
         // parsing json into objects
-
         String json = response.body();
-        String jsonTeamData = json.substring(38,json.length()-2);
-        System.out.println(jsonTeamData);
-
-
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        List<Team>teams = mapper.readValue(jsonTeamData, new TypeReference<List<Team>>(){});
-        teams.forEach(System.out::println);
+
+        JsonModel jsonModel = mapper.readValue(json, JsonModel.class);
+
+        TeamData teamOne = jsonModel.getSpecificData(0);
+        TeamData teamTwo = jsonModel.getSpecificData(1);
+
+        System.out.printf("Primeiro time -> %s\n" +
+                "Segundo time -> %s", teamOne.getName(), teamTwo.getName());
     }
 }
