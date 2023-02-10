@@ -14,10 +14,6 @@ public class TeamData {
     private String website;
 
 
-
-
-
-
     public String getTeamId() {
         return teamId;
     }
