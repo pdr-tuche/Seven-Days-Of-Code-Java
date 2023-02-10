@@ -1,6 +1,6 @@
 package packages.model;
 
-public class Team {
+public class TeamData {
     private String teamId;
     private String leagueId;
     private String name;
