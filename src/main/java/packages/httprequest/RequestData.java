@@ -30,10 +30,10 @@ public class RequestData {
     public static String replaceSpaces(String teamName) {
         String formattedName;
         if (teamName.contains(" ")) {
-            formattedName= teamName.replaceAll(" ", "%20");
-            return "&name="+formattedName;
+            formattedName = teamName.replaceAll(" ", "%20");
+            return "&name=" + formattedName;
         }
-        return "&name="+teamName;
+        return "&name=" + teamName;
     }
 
     public String getResponse() {

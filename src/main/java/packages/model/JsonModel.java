@@ -5,9 +5,10 @@ import java.util.List;
 public class JsonModel {
     private String code;
     private String message;
-    private List<TeamData>data;
+    private List<TeamData> data;
 
-    public JsonModel() {}
+    public JsonModel() {
+    }
 
     public JsonModel(String code, String message, List<TeamData> data) {
         this.code = code;
@@ -15,11 +16,11 @@ public class JsonModel {
         this.data = data;
     }
 
-    public TeamData getSpecificData(int index){
+    public TeamData getSpecificData(int index) {
         return data.get(index);
     }
 
-    public TeamData getTeamData(String name){
+    public TeamData getTeamData(String name) {
         TeamData team = null;
         for (TeamData elem :
                 data) {
