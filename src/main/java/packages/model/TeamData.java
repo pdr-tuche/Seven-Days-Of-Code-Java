@@ -13,6 +13,28 @@ public class TeamData {
     private String coach;
     private String website;
 
+    public TeamData() {
+    }
+
+    public TeamData(String teamId, String leagueId, String name, String logo, String foundingDate, String address, String area, String venue, String capacity, String coach, String website) {
+        this.teamId = teamId;
+        this.leagueId = leagueId;
+        this.name = name;
+        this.logo = logo;
+        this.foundingDate = foundingDate;
+        this.address = address;
+        this.area = area;
+        this.venue = venue;
+        this.capacity = capacity;
+        this.coach = coach;
+        this.website = website;
+    }
+
+
+
+    public TeamData(String name) {
+        this.name=name;
+    }
 
     public String getTeamId() {
         return teamId;
