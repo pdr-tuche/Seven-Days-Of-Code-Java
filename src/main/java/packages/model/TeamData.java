@@ -32,6 +32,11 @@ public class TeamData {
         this.website = website;
     }
 
+    public void showData(){
+        System.out.printf("Team: %s\n" +
+                "Logo: %s\n", this.name, this.logo);
+    }
+
     public TeamData(String name) {
         this.name = name;
     }
