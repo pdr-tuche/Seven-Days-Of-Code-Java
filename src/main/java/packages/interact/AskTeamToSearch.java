@@ -2,9 +2,9 @@ package packages.interact;
 
 import java.util.Scanner;
 
-public class AskToUser {
+public class AskTeamToSearch {
     private String teamName;
-    public AskToUser() {
+    public AskTeamToSearch() {
         System.out.printf("Digite o nome do time a ser buscado: ");
         Scanner input = new Scanner(System.in);
         String name = input.nextLine();
