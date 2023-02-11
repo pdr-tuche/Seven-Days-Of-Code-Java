@@ -1,5 +1,7 @@
 package packages;
 
+import org.json.JSONException;
+import packages.createjson.WriteJson;
 import packages.httprequest.RequestData;
 import packages.interact.AskTeamToSearch;
 import packages.jsonparser.MyJsonParser;
@@ -20,6 +22,11 @@ public class Main {
         JsonModel jsonModel = parsedJson.getJsonModel();
 
         TeamData team = jsonModel.getTeamData(teamToSearch);
-        team.showData();
+        try {
+            WriteJson jsonreturn = new WriteJson(team);
+            System.out.println(jsonreturn.getJsonObject());
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
