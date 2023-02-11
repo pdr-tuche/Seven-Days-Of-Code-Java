@@ -1,7 +1,7 @@
 package packages;
 
 import packages.httprequest.RequestData;
-import packages.interact.AskToUser;
+import packages.interact.AskTeamToSearch;
 import packages.jsonparser.MyJsonParser;
 import packages.model.JsonModel;
 import packages.model.TeamData;
@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-        AskToUser askTeamToSearch = new AskToUser();
+        AskTeamToSearch askTeamToSearch = new AskTeamToSearch();
         String teamToSearch = askTeamToSearch.getTeamName();
 
         RequestData requestData = new RequestData(teamToSearch);
@@ -20,8 +20,6 @@ public class Main {
         JsonModel jsonModel = parsedJson.getJsonModel();
 
         TeamData team = jsonModel.getTeamData(teamToSearch);
-
-        System.out.printf("Primeiro time -> %s\n" +
-                "logo -> %s", team.getName(), team.getLogo());
+        team.showData();
     }
 }
