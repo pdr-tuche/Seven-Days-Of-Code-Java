@@ -1,7 +1,6 @@
 package packages.model;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 public class JsonModel {
     private String code;
@@ -22,11 +21,11 @@ public class JsonModel {
     }
 
     public TeamData getTeamData(String name) {
-        TeamData team = new TeamData(name);
-        for (TeamData elem :
-                data) {
-            if (team.getName().equalsIgnoreCase(elem.getName())) {
-                team = elem;
+        TeamData team = new TeamData();
+        for (int i = 0; i < data.size(); i++) {
+            if (data.get(i).getName().contains(name)) {
+                team = data.get(i);
+                break;
             }
         }
         return team;
