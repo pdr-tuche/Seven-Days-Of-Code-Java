@@ -1,5 +1,7 @@
 package packages.model;
 
+import java.util.Objects;
+
 public class TeamData {
     private String teamId;
     private String leagueId;
@@ -30,10 +32,8 @@ public class TeamData {
         this.website = website;
     }
 
-
-
     public TeamData(String name) {
-        this.name=name;
+        this.name = name;
     }
 
     public String getTeamId() {
