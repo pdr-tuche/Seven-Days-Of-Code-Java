@@ -41,6 +41,14 @@ public class TeamData {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "TeamData{" +
+                "name='" + name + '\'' +
+                ", logo='" + logo + '\'' +
+                '}';
+    }
+
     public String getTeamId() {
         return teamId;
     }
