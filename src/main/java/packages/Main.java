@@ -9,6 +9,7 @@ import packages.model.JsonModel;
 import packages.model.TeamData;
 
 import java.io.IOException;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -21,9 +22,9 @@ public class Main {
         MyJsonParser parsedJson = new MyJsonParser(json);
         JsonModel jsonModel = parsedJson.getJsonModel();
 
-        TeamData team = jsonModel.getTeamData(teamToSearch);
+        List<TeamData> teams = jsonModel.getTeamDataList(teamToSearch);
         try {
-            WriteJson jsonreturn = new WriteJson(team);
+            WriteJson jsonreturn = new WriteJson(teams);
             System.out.println(jsonreturn.getJsonObject());
         } catch (JSONException e) {
             throw new RuntimeException(e);
