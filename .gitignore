@@ -23,3 +23,6 @@
 hs_err_pid*
 
 *.idea
+
+src/main/resources/team.json
+target/classes/team.json
