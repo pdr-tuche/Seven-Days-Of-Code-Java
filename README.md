@@ -5,7 +5,7 @@
 
 - Foi utilizado o teste grátis da API do [iSportsAPI](https://www.isportsapi.com/)
 
-A partir de uma requisição HTTP o programa irá criar um arquivo json com todos os nomes e o logo de times que contiverem o nome passado no terminal. O arquivo tratado encontra-se em: `src/main/resources`
+O programa irá **criar** um arquivo **json** com todos os nomes e o logo de times que contiverem o nome que será passado no terminal. Após a consulta com a API, o arquivo com os dados encontrados estará em: `src/main/resources`.
 
 
 ## Funcionamento linha a linha da classe Main
@@ -18,3 +18,12 @@ A partir de uma requisição HTTP o programa irá criar um arquivo json com todo
 - (linha 27) A lista de times que o objeto de `JsonModel` possui é escrito em um arquivo json pela classe `WriteJson` que faz o tratamento dos dados inserindo no json apenas o nome e logo do time. 
 - O arquivo criado se encontra no diretorio: `src/main/resources` com o nome de `team.json`
 - se não existir o arquivo neste diretório, o arquivo será criado, se ja houver o arquivo, sera sobrescrito.
+
+## Pacotes utilizados
+
+- [java.net.http](https://docs.oracle.com/en/java/javase/17/docs/api/java.net.http/java/net/http/package-summary.html) para requisições http.
+- [java.io.FileWriter](https://docs.oracle.com/javase/7/docs/api/java/io/FileWriter.html) para criação do arquivo json.
+
+###  Pacotes externos (maven)
+- [jackson core](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.12.3) para parsear dados.
+- [JSON Library From Android SDK](https://mvnrepository.com/artifact/com.vaadin.external.google/android-json/0.0.20131108.vaadin1) para estruturar o JSON (pacote org.json incluso).
