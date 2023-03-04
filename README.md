@@ -5,8 +5,16 @@
 
 - Foi utilizado o teste grátis da API do [iSportsAPI](https://www.isportsapi.com/)
 
-O programa ira criar um arquivo json com todos os nomes de times baseado com o nome passado no terminal.
-
-## Funcionamento
+A partir de uma requisição HTTP o programa irá criar um arquivo json com todos os nomes e o logo de times que contiverem o nome passado no terminal. O arquivo tratado encontra-se em: `src/main/resources`
 
 
+## Funcionamento linha a linha da classe Main
+
+- (linha 16) Primeiramente, a classe `AskTeamToSearch` será responsável por armazenar em memória o nome do time a ser pesquisado. 
+- (linha 17) Este nome, será armazenado na classe `Main` para ser passado á classe `RequestData`. 
+- (linha 19) A classe `RequestData` é responsável por fazer a requisição HTTP para a API do iSportsAPI e irá conter a resposta da requisição com as informações de todos os times que contém a palavra passada. 
+- (linha 22) A resposta HTTP retornada da classe `RequestData` será parseada baseado na classe `JsonModel` através da classe `MyJsonParser` (é uma espécie de "casting" de String para JsonModel). 
+- Em toda instância de `JsonModel` há informações da requisição como `code` que exibe o status da requisição, `message` que informará uma mensagem que é correspondente ao status da requisição e `data` que contém uma coleção (lista) das informações encontradas (todos os times que contém o nome passado).
+- (linha 27) A lista de times que o objeto de `JsonModel` possui é escrito em um arquivo json pela classe `WriteJson` que faz o tratamento dos dados inserindo no json apenas o nome e logo do time. 
+- O arquivo criado se encontra no diretorio: `src/main/resources` com o nome de `team.json`
+- se não existir o arquivo neste diretório, o arquivo será criado, se ja houver o arquivo, sera sobrescrito.
