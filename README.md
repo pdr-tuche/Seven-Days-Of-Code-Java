@@ -7,6 +7,9 @@
 
 O programa irá **criar** um arquivo **json** com todos os nomes e o logo de times que contiverem o nome que será passado no terminal. Após a consulta com a API, o arquivo com os dados encontrados estará em: `src/main/resources`.
 
+## Requisitos
+Ter uma chave da API e coloca-la como o valor da variável de ambiente `PERSONAL_API_KEY`.
+
 
 ## Funcionamento linha a linha da classe Main
 
