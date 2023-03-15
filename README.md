@@ -10,6 +10,9 @@ O programa irá **criar** um arquivo **json** com todos os nomes e o logo de tim
 ## Requisitos
 Ter uma chave da API e coloca-la como o valor da variável de ambiente `PERSONAL_API_KEY`.
 
+## Como usar:
+Após configurar a variavel de ambiente `PERSONAL_API_KEY`, execute o código e digite no terminal o nome do time a ser procurado.
+
 
 ## Funcionamento linha a linha da classe Main
 
